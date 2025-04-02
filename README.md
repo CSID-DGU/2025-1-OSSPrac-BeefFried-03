@@ -1,3 +1,5 @@
-# 2025-1-OSSPrac-BeefFried-03  
+# 2025-1-OSSPrac
 
-동국대학교 2025-1 OSSPrac 03팀, BeefFried입니다.
+## 2025-1학기 오픈소스소프트웨어실습
+
+### 임수빈
