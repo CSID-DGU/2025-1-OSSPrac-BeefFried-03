@@ -7,9 +7,9 @@ def input():
     return render_template('input.html')
 
 
-@app.route('/result', method=['POST','GET'])
+@app.route('/result', methods=['POST','GET'])
 def result():
-    if result.method == 'POST':
+    if request.method == 'POST':
         result=dict()
         result['Name'] = request.form.get('name')
         result['StudentNumber']=request.form.get('StudentNumber')
@@ -21,5 +21,5 @@ def result():
         
         return render_template('result.html',result=result)
         
-    if __name__ == '__main__':
-        app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
