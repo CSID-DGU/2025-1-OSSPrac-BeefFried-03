@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <body>
-        <form action="/result" method="POST">
+  <body>
+    <form action="/result" method="POST">
+      <!-- gender 라디오 버튼 -->
+      <label>Gender</label><br />
+      <label>
+        <input type="radio" name="gender" value="Male" required />
+        Male
+      </label>
+      <label>
+        <input type="radio" name="gender" value="Female" />
+        Female
+      </label>
 
-            <p>Programming Languages</p>
-            <label><input type="checkbox" name="languages" value="python">Python</label>
-            <label><input type="checkbox" name="languages" value="java">Java</label>
-            <label><input type="checkbox" name="languages" value="HTML">HTML</label>
-            <label><input type="checkbox" name="languages" value="C++">C++</label><br>
-            <br>
-            <button type="submit" name="submit" value="submit">submit</button>
-        </form>
-    </body>
+      <p>Programming Languages</p>
+      <label
+        ><input type="checkbox" name="languages" value="python" />Python</label
+      >
+      <label><input type="checkbox" name="languages" value="java" />Java</label>
+      <label><input type="checkbox" name="languages" value="HTML" />HTML</label>
+      <label><input type="checkbox" name="languages" value="C++" />C++</label
+      ><br />
+      <br />
+      <button type="submit" name="submit" value="submit">submit</button>
+    </form>
+  </body>
 </html>
