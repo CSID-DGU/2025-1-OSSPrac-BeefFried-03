@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #1c2431;
+}
+body {
+  margin: 0;
+  padding: 40px 0;
+  background: #f4f6fa;
+}
+
+.team-banner {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeDown 0.7s ease-out;
+}
+.team-banner img {
+  max-width: 200px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.team-banner img:hover {
+  transform: scale(1.06) rotate(-2deg);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+.team-banner h1 {
+  font-size: 1.7rem;
+  margin: 14px 0 0;
+  font-weight: 600;
+  color: #3d6af2;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 28px;
+  font-weight: 600;
+  color: #3d6af2;
+}
+.accent {
+  color: #3d6af2;
+}
+
+.single-form {
+  width: min(600px, 92%);
+  margin: 0 auto;
+}
+.single-form fieldset {
+  border: 2px solid #d1d9e6;
+  border-radius: 14px;
+  padding: 24px 26px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+legend {
+  padding: 0 10px;
+  font-weight: 600;
+  color: #3d6af2;
+}
+label {
+  display: block;
+  margin: 10px 0;
+  font-size: 0.95rem;
+}
+label > input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px 12px;
+  border: 1.5px solid #d1d9e6;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.18s;
+}
+label > input:focus {
+  border-color: #3d6af2;
+}
+input.mini {
+  width: 70px !important;
+  display: inline-block;
+}
+
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+.file-row input[type="file"] {
+  flex: 1;
+  padding: 2px;
+  border: 1.5px solid #d1d9e6;
+  border-radius: 6px;
+  transition: border-color 0.18s;
+}
+.file-row input[type="file"]:hover {
+  border-color: #3d6af2;
+  background: #f4f6ff;
+}
+
+.check-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 16px;
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+.check-inline input {
+  margin: 0;
+}
+
+button[type="submit"] {
+  display: block;
+  margin: 26px auto 0;
+  padding: 12px 46px;
+  border: none;
+  border-radius: 30px;
+  background: #3d6af2;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.18s;
+}
+button[type="submit"]:hover {
+  background: #2944a3;
+  transform: translateY(-2px);
+}
+
+table.result {
+  border-collapse: collapse;
+  width: min(500px, 90%);
+  margin: 30px auto;
+}
+table.result caption {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #3d6af2;
+}
+table.result th,
+table.result td {
+  border: 1px solid #d1d9e6;
+  padding: 6px 10px;
+  text-align: left;
+}
+table.result th {
+  background: #f0f3f9;
+  width: 140px;
+}
+.again {
+  display: block;
+  margin-top: 40px;
+  text-align: center;
+  color: #3d6af2;
+}
+.again:hover {
+  text-decoration: underline;
+}
+.team-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 18px 0 8px;
+  color: #3d6af2;
+  position: relative;
+  animation: bounceText 1.6s ease-in-out infinite alternate;
+}
+
+.team-name::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #3d6af2;
+  bottom: -6px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.team-name:hover::after {
+  transform: scaleX(1);
+}
+
+@keyframes bounceText {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(1deg);
+  }
+  100% {
+    transform: scale(1) rotate(-1deg);
+  }
+}
+
+.eng {
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: #555;
+  margin-left: 6px;
+}
