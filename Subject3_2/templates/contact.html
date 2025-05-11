@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8" />
+    <title>육회튀김조 비하인드</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <style>
+        .section {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 1rem;
+        line-height: 1.8;
+        }
+
+        .section h2 {
+        color: royalblue;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid #ccc;
+        }
+
+        .img-wrap {
+        text-align: center;
+        margin: 1.5rem 0;
+        }
+
+        .img-wrap img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .music-wrap {
+        text-align: center;
+        margin-top: 1.5rem;
+        }
+
+        .music-wrap iframe {
+        border-radius: 12px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+        padding-left: 1.5rem;
+        }
+
+        .back-home {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.6rem 1.4rem;
+        background-color: #888;
+        color: white;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.2s;
+        }
+
+        .back-home:hover {
+        background-color: #555;
+        }
+    </style>
+    </head>
+
+    <body>
+    <div class="team-banner">
+        <img src="{{ url_for('static', filename='img/육회튀김.png') }}" alt="육회튀김조 대표 이미지" />
+        <h1 class="team-name">육회튀김조 <span class="eng">(Beef-Fried)</span></h1>
+    </div>
+
+    <div class="section">
+        <h2>🔥 팀명 유래</h2>
+        <p>
+        저희 조는 멤버들이 모두 육회와 감자튀김을 좋아해서 육회+감자튀김을 합친친 <strong>육회튀김조</strong>라는 이름이 탄생하게 되었습니다.
+        다소 생소할 수 있지만, 그래서 더 기억에 남는 이름이 되었어요!
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>🛠️ 제작기</h2>
+        <p>
+        처음에는 입력폼 하나만 만들기로 했지만, 점점 아이디어가 모이면서 팀 소개, 게임, 스타일링 등 다양한 기능을 추가하게 되었어요.
+        </p>
+        <div class="img-wrap">
+        <img src="{{ url_for('static', filename='img/making.jpg') }}" alt="제작 과정 이미지">
+        </div>
+        <p>사진은 직접 시은님이 아이디어를 종합 하며 만드신 프로토타입이에요.</p>
+    </div>
+
+    <div class="section">
+        <h2>🎧 우리 팀의 추천 노래</h2>
+        <div class="music-wrap">
+            <iframe width="300" height="180"
+            src="https://www.youtube.com/embed/fzNMd3Tu1Zw"
+            title="NCS Music" allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📌 미공개 TMI</h2>
+        <ul>
+        <li>수빈이는 발표 전에 꼭 민초를 먹는다.</li>
+        <li>원은 코딩 중 클래식 음악을 틀어놓는다.</li>
+        <li>시은이는 새벽 2시에 아이디어가 가장 잘 떠오른다.</li>
+        </ul>
+    </div>
+
+    <div class="section" style="text-align: center;">
+        <a href="{{ url_for('home') }}" class="back-home">🏠 홈으로 돌아가기</a>
+    </div>
+    </body>
+</html>
