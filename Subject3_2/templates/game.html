@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8" />
+    <title>TMI 게임</title>
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    </head>
+    <body>
+        <div class="team-banner">
+            <img src="{{ url_for('static', filename='img/육회튀김.png') }}" alt="육회튀김조 대표 이미지" />
+            <h1 class="team-name">육회튀김조 <span class="eng">(Beef-Fried)</span></h1>
+        </div>
+
+        <h2 style="text-align: center; margin-top: 2rem; color: royalblue;">
+            {{ quiz.question }}
+        </h2>
+
+        <form method="POST" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 2rem;">
+            <input type="hidden" name="is_true" value="{{ quiz.is_true }}" />
+            <button type="submit" name="answer" value="true" class="main-button">True</button>
+            <button type="submit" name="answer" value="false" class="main-button">False</button>
+        </form>
+
+        <div class="home-button-wrap">
+            <a href="{{ url_for('home') }}" class="home-button">🏠 홈으로</a>
+        </div>
+    
+
+        {% if result %}
+        <div class="result-area">
+            <h3>{{ result }}</h3>
+            <a href="{{ url_for('game') }}">다음 문제로 →</a>
+        </div>
+        {% endif %}
+    
+        <style>
+            .home-button-wrap {
+                text-align: center;
+                margin-top: 2rem;
+                }
+
+                .home-button {
+                background-color: #aaa;
+                color: white;
+                padding: 0.6em 1.5em;
+                border-radius: 20px;
+                text-decoration: none;
+                font-weight: bold;
+                transition: 0.3s;
+                }
+        
+                .home-button:hover {
+                background-color: #888;
+                }
+        
+            .main-button {
+            background-color: royalblue;
+            color: white;
+            padding: 0.7em 2em;
+            border: none;
+            border-radius: 20px;
+            font-size: 1.1em;
+            transition: 0.3s;
+            }
+
+            .main-button:hover {
+            background-color: darkblue;
+            }
+
+            .result-area {
+            text-align: center;
+            margin-top: 2rem;
+            animation: popIn 0.4s ease-out;
+            }
+
+            .result-area h3 {
+            font-size: 1.5em;
+            color: #333;
+            }
+
+            .result-area a {
+            display: inline-block;
+            margin-top: 0.5rem;
+            text-decoration: none;
+            color: royalblue;
+            font-weight: bold;
+            }
+
+            @keyframes popIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+            }
+        </style>
+        </body>
+
+</html>
