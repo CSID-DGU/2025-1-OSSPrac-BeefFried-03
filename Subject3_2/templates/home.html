@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>육회튀김조 시작하기</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <style>
+      .button-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        margin-top: 2em;
+      }
+
+      .main-button {
+        background-color: #f5a623;
+        color: white;
+        padding: 0.8em 2em;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .main-button:hover {
+        background-color: #d48806;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="team-banner">
+      <img
+        src="{{ url_for('static', filename='img/육회튀김.png') }}"
+        alt="육회튀김조 대표 이미지"
+      />
+      <h1 class="team-name">
+        육회튀김조 <span class="eng">(Beef-Fried)</span>
+      </h1>
+    </div>
+
+    <h2>👇 아래에서 시작할 작업을 선택하세요</h2>
+
+    <div class="button-group">
+      <a href="{{ url_for('input_page') }}" class="main-button"
+        >📝 팀원 정보 입력하기</a
+      >
+      <a href="{{ url_for('result') }}" class="main-button"
+        >📄 팀원 정보 보기</a
+      >
+      <a href="{{ url_for('game') }}" class="main-button">🎮 TMI 게임 시작</a>
+      <a href="{{ url_for('contact') }}" class="main-button">📞 Contact</a>
+    </div>
+  </body>
+</html>
