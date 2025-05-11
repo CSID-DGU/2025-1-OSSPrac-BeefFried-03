@@ -15,7 +15,7 @@ members = []
 # ──────────────────────────────────────────────────────────────
 @app.route("/")
 def input_page():
- 
+
     order = len(members) + 1         
     return render_template("input.html", order=order)
 

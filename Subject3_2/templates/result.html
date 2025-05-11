@@ -7,32 +7,58 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}" />
 </head>
 <body>
-    <section class="profile_section">
-        {% for mem in members %}
-            <div class="present_box">
-                <div class="profile_img_now">
-                    {% if mem.ImgNow %}
-                        <img src="{{url_for('static', filename=mem.ImgNow)}}" alt="현재 이미지" >
-                    {% endif %}
+    <h1 id="profile_title">육회퇴김(BeefFried)의 팀원들을 소개합니다!</h1>
+    <div class="info_container">
+        {% if not members %}
+            <h3 id="nothing_comment">아직 입력된 내용이 없습니다.<br>팀원 정보 입력하기에서 정보를 추가해주세요!</h3>
+        {% endif %}
+        <section class="profile_section">
+            {% for mem in members %}
+                <div id="profile_container">
+                    <div class="present_box">
+                        <div class="profile_info">
+                            <div class="profile_imgBox">
+                                {% if mem.ImgNow %}
+                                    <img src="{{url_for('static', filename=mem.ImgNow)}}" alt="현재 이미지"  class="profile_img">
+                                {% else %}
+                                    <img src="{{ url_for('static', filename='img/default.jpg') }}" alt="기본 이미지" class="profile_img">
+                                {% endif %}
+                            </div>
+                            <div class="profile_detail">
+                                <h1>{{mem.Name}}</h1>
+                                <p>전공 : {{mem.Dept}}</p>
+                                <p>이메일 : {{mem.Email}}</p>
+                                <p>전화번호 : {{mem.Phone}}</p>
+                                <p>역할 : {{mem.Role}}</p>
+                                <p>프로그래밍 언어 : {{mem.Languages}}</p>
+                            </div>
+                        </div>
+                        <div class="personality_box">
+                            <h3>성격 한눈에 보기</h3>
+                            <p>MBTI : {{mem.MBTI}}</p>
+                            <p>한 줄 정리 : " {{mem.Comment}} "</p>
+                        </div>
+                    </div>
+                    <div class="future_box">
+                        <h3>미리 보는 미래 프로필</h3>
+                        <div class="future_info">
+                            <div class="profile_imgBox">
+                                {% if memFuture %}
+                                    <img src="{{url_for('static', filename=mem.ImgFuture)}}" alt="미래 이미지" class="profile_img imgFuture" >
+                                {% else %}
+                                    <img src="{{ url_for('static', filename='img/default.jpg') }}" alt="기본 이미지" class="profile_img imgFuture">
+                                {% endif %}
+                            </div>
+                            <div class="profile_detail">
+                                <p>소속 기관 : {{mem.FutureOrg}}</p>
+                                <p>좌우명 : {{mem.Motto}}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h1>{{mem.Name}}</h1>
-                <p>{{mem.Major}}</p>
-                <p>{{mem.Email}}</p>
-                <p>{{mem.Phone}}</p>
-                <p>{{mem.Role}}</p>
-                <p>{{mem.Languages}}</p>
-                <div class="personality_box">
-                    <p>{{mem.MBTI}}</p>
-                    <p>{{mem.Comment}}</p>
-                </div>
-            </div>
-            <div class="future_box">
-                {% if memFuture %}
-                        <img src="{{url_for('static', filename=mem.ImgFuture)}}" alt="현재 이미지" >
-                {% endif %}
-            </div>
-        {% endfor %}
-        <div></div>
-    </section>
+            {% endfor %}
+        </section>
+        <div class="home-button-container"><a href="{{ url_for('home') }}" class="home_button">🏠 홈으로</a></div>
+    </div>
 </body>
 </html>

@@ -32,7 +32,9 @@ def submit():
         "Phone":    request.form.get("phone", "").strip(),
         "MBTI":     request.form.get("mbti", "").upper(),
         "Comment":  request.form.get("comment", "").strip(),
-        "Languages": ", ".join(request.form.getlist("languages"))
+        "Languages": ", ".join(request.form.getlist("languages")),
+        "FutureOrg": request.form.get("future_org", "").strip(),  
+        "Motto":     request.form.get("motto", "").strip()        
     }
 
     # 이미지 저장
@@ -58,7 +60,7 @@ def submit():
 # ------------------- 결과 보기 -------------------
 @app.route("/result")
 def result():
-    return render_template("main.html", members=members)
+    return render_template("result.html", members=members)
 
 # ------------------- Contact -------------------
 @app.route("/contact")
