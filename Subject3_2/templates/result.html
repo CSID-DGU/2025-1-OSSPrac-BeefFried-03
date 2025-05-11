@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}" />
+</head>
+<body>
+    <section class="profile_section">
+        {% for mem in members %}
+            <div class="present_box">
+                <div class="profile_img_now">
+                    {% if mem.ImgNow %}
+                        <img src="{{url_for('static', filename=mem.ImgNow)}}" alt="현재 이미지" >
+                    {% endif %}
+                </div>
+                <h1>{{mem.Name}}</h1>
+                <p>{{mem.Major}}</p>
+                <p>{{mem.Email}}</p>
+                <p>{{mem.Phone}}</p>
+                <p>{{mem.Role}}</p>
+                <p>{{mem.Languages}}</p>
+                <div class="personality_box">
+                    <p>{{mem.MBTI}}</p>
+                    <p>{{mem.Comment}}</p>
+                </div>
+            </div>
+            <div class="future_box">
+                {% if memFuture %}
+                        <img src="{{url_for('static', filename=mem.ImgFuture)}}" alt="현재 이미지" >
+                {% endif %}
+            </div>
+        {% endfor %}
+        <div></div>
+    </section>
+</body>
+</html>

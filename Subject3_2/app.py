@@ -59,7 +59,7 @@ def result():
     global members
     data = members.copy()  
     members = []           
-    return render_template("main.html", members=data)
+    return render_template("main.html", members=data)  #수정
 
 # ──────────────────────────────────────────────────────────────
 if __name__ == "__main__":
