@@ -2,62 +2,230 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <title>육회튀김조 시작하기</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/main.css') }}"
-    />
+    <title>육회튀김조 · Home</title>
+
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+      * {
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
       body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #111
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23222222'/%3E%3C/svg%3E");
         overflow-x: hidden;
       }
-      .button-group {
+      .home-card {
+        text-align: center;
+        padding: 48px 34px 56px;
+        border-radius: 28px;
+        background: #1b1b1b;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+        width: min(420px, 90%);
+        animation: cardPop 0.8s ease-out;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1em;
-        margin-top: 2em;
       }
 
-      .main-button {
-        background-color: #f5a623;
-        color: white;
-        padding: 0.8em 2em;
+      .team-banner img {
+        width: 180px;
+        border-radius: 18px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+        filter: grayscale(0.15) contrast(1.05);
+        transition: 0.35s;
+      }
+      .team-banner img:hover {
+        transform: scale(1.05) rotate(-2deg);
+        filter: none;
+      }
+      .team-name {
+        margin: 20px 0 2px;
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(120deg, #bbb, #fff 45%, #bbb 60%);
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: shine 5s linear infinite,
+          bounce 2s ease-in-out infinite alternate;
+        position: relative;
+      }
+      .team-name .eng {
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: #999;
+        -webkit-text-fill-color: #999;
+      }
+      .tagline {
+        font-size: 0.85rem;
+        color: #c0c0c0;
+        margin-top: 6px;
+        opacity: 0.85;
+      }
+
+      .team-name::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 100%;
+        height: 2px;
+        background: #c0c0c0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s ease;
+      }
+      .team-name:hover::after {
+        transform: scaleX(1);
+      }
+
+      .divider {
+        width: 180px;
+        height: 2px;
+        margin: 28px auto 24px;
         border: none;
-        border-radius: 8px;
-        text-decoration: none;
-        font-size: 1.2em;
-        font-weight: bold;
-        transition: background-color 0.3s;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #777 30%,
+          #aaa 50%,
+          #777 70%,
+          transparent
+        );
       }
 
+      h2 {
+        font-size: 1rem;
+        font-weight: 500;
+        color: #d0d0d0;
+        margin-bottom: 26px;
+      }
+
+      .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1.1em;
+      }
+      .main-button {
+        width: 260px;
+        padding: 0.9em 0;
+        border: none;
+        border-radius: 12px;
+        background: linear-gradient(135deg, #d2d2d2 0%, #7c7c7c 100%);
+        color: #111;
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.18s, box-shadow 0.18s, filter 0.18s;
+      }
+      .main-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.35);
+        transform: skewX(-20deg);
+        transition: 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+      .main-button:hover::before {
+        left: 130%;
+      }
       .main-button:hover {
-        background-color: #d48806;
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
+        filter: brightness(1.12);
+      }
+
+      @keyframes shine {
+        0% {
+          background-position: -200% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+      @keyframes bounce {
+        0% {
+          transform: scale(1) rotate(0);
+        }
+        50% {
+          transform: scale(1.05) rotate(1deg);
+        }
+        100% {
+          transform: scale(1) rotate(-1deg);
+        }
+      }
+      @keyframes cardPop {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .main-button {
+          width: 200px;
+        }
+        .team-banner img {
+          width: 140px;
+        }
       }
     </style>
   </head>
+
   <body>
-    <div class="team-banner">
-      <img
-        src="{{ url_for('static', filename='img/육회튀김.png') }}"
-        alt="육회튀김조 대표 이미지"
-      />
-      <h1 class="team-name">
-        육회튀김조 <span class="eng">(Beef-Fried)</span>
-      </h1>
-    </div>
+    <main class="home-card">
+      <!-- 팀 로고 · 이름 -->
+      <div class="team-banner">
+        <img
+          src="{{ url_for('static', filename='img/육회튀김.png') }}"
+          alt="육회튀김조 대표 이미지"
+        />
+        <h1 class="team-name">
+          육회튀김조 <span class="eng">(Beef-Fried)</span>
+        </h1>
+        <p class="tagline">
+          We code it&nbsp;rare&nbsp;&amp;&nbsp;fry it crispy!
+        </p>
+      </div>
 
-    <h2>👇 아래에서 시작할 작업을 선택하세요</h2>
+      <hr class="divider" />
 
-    <div class="button-group">
-      <a href="{{ url_for('input_page') }}" class="main-button"
-        >📝 팀원 정보 입력하기</a
-      >
-      <a href="{{ url_for('result') }}" class="main-button"
-        >📄 팀원 정보 보기</a
-      >
-      <a href="{{ url_for('game') }}" class="main-button">🎮 TMI 게임 시작</a>
-      <a href="{{ url_for('contact') }}" class="main-button">📞 Contact</a>
-    </div>
+      <h2>👇&nbsp;아래에서 시작할 작업을 선택하세요</h2>
+
+      <nav class="button-group">
+        <a href="{{ url_for('input_page') }}" class="main-button"
+          >📝&nbsp;팀원 정보 입력하기</a
+        >
+        <a href="{{ url_for('result')     }}" class="main-button"
+          >📄&nbsp;팀원 정보 보기</a
+        >
+        <a href="{{ url_for('game')       }}" class="main-button"
+          >🎮&nbsp;TMI 게임 시작</a
+        >
+        <a href="{{ url_for('contact')    }}" class="main-button"
+          >📞&nbsp;Contact</a
+        >
+      </nav>
+    </main>
   </body>
 </html>

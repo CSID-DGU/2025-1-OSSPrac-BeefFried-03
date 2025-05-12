@@ -1,106 +1,203 @@
+/* ------------------------------------------------------------
+   RESULT PAGE – Metallic Black & Silver Theme
+------------------------------------------------------------ */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 * {
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    color: #1c2431;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #e4e4e4;
 }
 body {
-    margin: 0;
-    padding: 40px 0;
-    background: #f4f6fa;
-    height: 100vh;
+  margin: 0;
+  padding: 50px 0;
+  background: #111;
+  min-height: 100vh;
 }
-/*정렬*/
-.info_container{
-    display: flex;
-    flex-direction: column;
+#profile_title {
+  text-align: center;
+  margin-bottom: 46px;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.3px;
+  color: #c0c0c0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.55);
 }
-/*아무것도 없을 때*/
-#nothing_comment{
-    color:#34435a;
-    text-align: center;
-    margin-top:100px;
-}
-#profile_title{
-    color:#3d6af2;
-    text-align: center;
-}
-.profile_section{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap : 30px;
+#nothing_comment {
+  color: #999;
+  text-align: center;
+  margin-top: 100px;
 }
 
-#profile_container{
-    width: 500px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border-radius: 15px;
-    transition: transform 0.3s ease-in-out;  
-    background-color: #eef3fe;
+.profile_section {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 0 20px;
 }
-#profile_container:hover{
-    transform: scale(1.05);
-    background-color: #f9fafc;
+#profile_container {
+  width: 350px;
+  background: #1b1b1b;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+#profile_container:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.75);
 }
 
-.profile_info{
-    display: flex;
-    flex-direction: row;
-    gap:30px;
-    margin: 15px 20px;
-}
-
-/*성격*/
-.personality_box{
-    padding:20px;
-    margin: 0 20px;
-}
-.personality_box h3, .future_box h3{
-    color:#3d6af2;
-    border-bottom: 2px solid #3d6af2;
-}
-.future_box{
-    border-radius: 15px;
-    margin: 5px 20px 20px 20px;
-    padding:5px 20px;
-}
-.future_info{
-    display: flex;
-    gap:30px;
+.profile_info {
+  display: flex;
+  gap: 22px;
+  padding: 22px;
 }
 .profile_img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #f4f6fa;                  
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s ease-in-out;   
-}
-.imgFuture{
-    border: 2px solid #3753a7;  
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s;
 }
 .profile_img:hover {
-    transform: scale(1.05);                 
+  transform: scale(1.07);
 }
-/*홈으로 돌아가기*/
-    .home-button-container {
-        text-align: center;
-        margin-top: 2.5rem;
-        }
+.profile_detail h1 {
+  margin: 0 0 6px 0;
+  font-size: 1.4rem;
+  color: #fff;
+}
+.profile_detail p {
+  margin: 3px 0;
+  font-size: 0.9rem;
+  color: #b5b5b5;
+}
 
-        .home_button {
-        background-color: #3d6af2;
-        color: white;
-        padding: 0.6em 1.5em;
-        border-radius: 20px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: 0.3s;
-        }
+.personality_box,
+.future_box {
+  padding: 20px 26px;
+}
+.personality_box h3,
+.future_box h3 {
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #d6d6d6;
+  border-bottom: 2px solid #555;
+  padding-bottom: 4px;
+}
+.personality_box p,
+.future_box p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #bfbfbf;
+}
 
-        .home_button:hover {
-        background-color: #3753a7;
-        }
+.imgFuture {
+  border-color: #777;
+}
+
+.home-button-container {
+  text-align: center;
+  margin-top: 50px;
+}
+.home_button {
+  width: 220px;
+  display: inline-block;
+  padding: 0.8em 0;
+  border-radius: 40px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  color: #111;
+  text-align: center;
+  cursor: pointer;
+  background: linear-gradient(135deg, #d4d4d4 0%, #828282 100%);
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.55);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.18s, box-shadow 0.18s, filter 0.18s;
+}
+
+.home_button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 55%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: skewX(-20deg);
+  transition: 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.home_button:hover::before {
+  left: 130%;
+}
+.home_button:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 9px 24px rgba(0, 0, 0, 0.75);
+  filter: brightness(1.12);
+}
+
+.profile_detail h1 {
+  font-size: 1.5rem;
+  color: #fafafa; /* 완전 흰색에 가깝게 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8), 0 0 4px rgba(255, 255, 255, 0.25); /* 부드러운 광택 */
+}
+
+.personality_box h3,
+.future_box h3 {
+  color: #f0f0f0; /* 밝은 실버 */
+  border-bottom-color: #777; /* 살짝 더 밝음 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+.profile_detail p,
+.personality_box p,
+.future_box p {
+  color: #d0d0d0; /* 기존 #bfbfbf → 더 밝게 */
+  line-height: 1.4;
+}
+
+.personality_box p:first-of-type,   /* MBTI */
+.profile_detail p:first-of-type {
+  /* 전공 */
+  font-weight: 600;
+  color: #ffffff;
+}
+
+#profile_container {
+  position: relative;
+  overflow: hidden;
+}
+#profile_container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at top,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+}
+
+.home_button {
+  font-size: 1.05rem;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 500px) {
+  .profile_detail p,
+  .personality_box p,
+  .future_box p {
+    font-size: 0.95rem;
+  }
+  .profile_detail h1 {
+    font-size: 1.35rem;
+  }
+}

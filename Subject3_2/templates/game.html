@@ -1,108 +1,238 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
+  <head>
     <meta charset="UTF-8" />
     <title>TMI 게임</title>
     <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/main.css') }}"
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
     />
-    </head>
-    <body>
-        <div class="team-banner">
-            <img src="{{ url_for('static', filename='img/육회튀김.png') }}" alt="육회튀김조 대표 이미지" />
-            <h1 class="team-name">육회튀김조 <span class="eng">(Beef-Fried)</span></h1>
-        </div>
+  </head>
+  <body>
+    <div class="team-banner">
+      <img
+        src="{{ url_for('static', filename='img/육회튀김.png') }}"
+        alt="육회튀김조 대표 이미지"
+      />
+      <h1 class="team-name">
+        육회튀김조 <span class="eng">(Beef-Fried)</span>
+      </h1>
+    </div>
 
-        <h2 style="text-align: center; margin-top: 2rem; color: royalblue;">
-            {{ quiz.question }}
-        </h2>
+    <h2 style="text-align: center; margin-top: 2rem; color: rgb(192, 192, 192)">
+      {{ quiz.question }}
+    </h2>
 
-        <form method="POST" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 2rem;">
-            <input type="hidden" name="is_true" value="{{ quiz.is_true }}" />
-            <button type="submit" name="answer" value="true" class="main-button">True</button>
-            <button type="submit" name="answer" value="false" class="main-button">False</button>
-        </form>
+    <form
+      method="POST"
+      style="
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 2rem;
+      "
+    >
+      <input type="hidden" name="is_true" value="{{ quiz.is_true }}" />
+      <button type="submit" name="answer" value="true" class="main-button">
+        True
+      </button>
+      <button type="submit" name="answer" value="false" class="main-button">
+        False
+      </button>
+    </form>
 
-        <div class="home-button-wrap">
-            <a href="{{ url_for('home') }}" class="home-button">🏠 홈으로</a>
-        </div>
-    
+    <div class="home-button-wrap">
+      <a href="{{ url_for('home') }}" class="home-button">🏠 홈으로</a>
+    </div>
 
-        {% if result %}
-        <div class="result-area">
-            <h3>{{ result }}</h3>
-            <a href="{{ url_for('game') }}">다음 문제로 →</a>
-        </div>
-        {% endif %}
-    
-        <style>
-            body {
-                overflow-x: hidden;
-            }
-            .home-button-wrap {
-                text-align: center;
-                margin-top: 2rem;
-                }
+    {% if result %}
+    <div class="result-area">
+      <h3>{{ result }}</h3>
+      <a href="{{ url_for('game') }}">다음 문제로 →</a>
+    </div>
+    {% endif %}
 
-                .home-button {
-                background-color: #aaa;
-                color: white;
-                padding: 0.6em 1.5em;
-                border-radius: 20px;
-                text-decoration: none;
-                font-weight: bold;
-                transition: 0.3s;
-                }
-        
-                .home-button:hover {
-                background-color: #888;
-                }
-        
-            .main-button {
-            background-color: royalblue;
-            color: white;
-            padding: 0.7em 2em;
-            border: none;
-            border-radius: 20px;
-            font-size: 1.1em;
-            transition: 0.3s;
-            }
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+      .home-button-wrap {
+        text-align: center;
+        margin-top: 2rem;
+      }
 
-            .main-button:hover {
-            background-color: darkblue;
-            }
+      .home-button {
+        background-color: #aaa;
+        color: white;
+        padding: 0.6em 1.5em;
+        border-radius: 20px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+      }
 
-            .result-area {
-            text-align: center;
-            margin-top: 2rem;
-            animation: popIn 0.4s ease-out;
-            }
+      .home-button:hover {
+        background-color: #888;
+      }
 
-            .result-area h3 {
-            font-size: 1.5em;
-            color: #333;
-            }
+      .main-button {
+        background-color: royalblue;
+        color: white;
+        padding: 0.7em 2em;
+        border: none;
+        border-radius: 20px;
+        font-size: 1.1em;
+        transition: 0.3s;
+      }
 
-            .result-area a {
-            display: inline-block;
-            margin-top: 0.5rem;
-            text-decoration: none;
-            color: royalblue;
-            font-weight: bold;
-            }
+      .main-button:hover {
+        background-color: darkblue;
+      }
 
-            @keyframes popIn {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-            }
-        </style>
-        </body>
+      .result-area {
+        text-align: center;
+        margin-top: 2rem;
+        animation: popIn 0.4s ease-out;
+      }
 
+      .result-area h3 {
+        font-size: 1.5em;
+        color: #333;
+      }
+
+      .result-area a {
+        display: inline-block;
+        margin-top: 0.5rem;
+        text-decoration: none;
+        color: royalblue;
+        font-weight: bold;
+      }
+
+      @keyframes popIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .main-button,
+      .home-button {
+        width: 240px; /* 버튼 폭 통일 */
+        display: block;
+        padding: 0.85em 0;
+        border: none;
+        border-radius: 38px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        color: #111;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+
+        background: linear-gradient(135deg, #d5d5d5 0%, #8b8b8b 100%);
+        box-shadow: 0 5px 14px rgba(0, 0, 0, 0.5);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.18s, box-shadow 0.18s, filter 0.18s;
+      }
+
+      .main-button::before,
+      .home-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 55%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.35);
+        transform: skewX(-25deg);
+        transition: all 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+      .main-button:hover::before,
+      .home-button:hover::before {
+        left: 130%;
+      }
+
+      .main-button:hover,
+      .home-button:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 9px 24px rgba(0, 0, 0, 0.65);
+        filter: brightness(1.1);
+      }
+
+      button[name="answer"][value="true"] {
+        color: #0d7900;
+      }
+      button[name="answer"][value="false"] {
+        color: #970000;
+      }
+
+      h2 {
+        max-width: 680px;
+        margin: 2.4rem auto 0;
+        line-height: 1.45;
+        font-weight: 600;
+        color: #c0c0c0;
+        text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+        animation: fadeSlide 0.7s ease-out;
+      }
+      @keyframes fadeSlide {
+        from {
+          opacity: 0;
+          transform: translateY(-15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .result-area {
+        margin-top: 2.4rem;
+        display: inline-block;
+        background: #1b1b1b;
+        padding: 1.6rem 2.4rem;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+      }
+      .result-area h3 {
+        margin: 0 0 0.6rem 0;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #f1f1f1;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      }
+      .result-area a {
+        display: inline-block;
+        color: #d5d5d5;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.4em 1em;
+        border-radius: 30px;
+        border: 1px solid #777;
+        transition: background 0.25s, color 0.25s;
+      }
+      .result-area a:hover {
+        background: #d5d5d5;
+        color: #111;
+      }
+
+      @media (max-width: 600px) {
+        .main-button,
+        .home-button {
+          width: 190px;
+          font-size: 1rem;
+        }
+        h2 {
+          font-size: 1.1rem;
+        }
+      }
+    </style>
+  </body>
 </html>

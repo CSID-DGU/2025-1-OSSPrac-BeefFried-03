@@ -1,116 +1,247 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
+  <head>
     <meta charset="UTF-8" />
     <title>육회튀김조 비하인드</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
     <style>
-        body {
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        color: #e5e5e5;
+      }
+      body {
+        background: #111;
+        line-height: 1.6;
         overflow-x: hidden;
-        }
-        .section {
+      }
+
+      .team-banner {
+        text-align: center;
+        padding: 2rem 0 1rem;
+        animation: fadeDown 0.8s ease-out;
+      }
+      .team-banner img {
+        max-width: 180px;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        transition: transform 0.4s ease, filter 0.4s ease;
+      }
+      .team-banner img:hover {
+        transform: scale(1.05) rotate(-2deg);
+        filter: brightness(1.1);
+      }
+      .team-banner .team-name {
+        margin-top: 0.8rem;
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(120deg, #fff, #bbb 70%);
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: shine 3s linear infinite;
+      }
+      .team-banner .team-name .eng {
+        font-size: 1rem;
+        font-weight: 400;
+        background: none;
+        -webkit-text-fill-color: #999;
+      }
+
+      .section {
         max-width: 800px;
         margin: 2rem auto;
-        padding: 1rem;
-        line-height: 1.8;
-        }
+        padding: 1.5rem 2rem;
+        background: #1b1b1b;
+        border-radius: 12px;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 0.8s forwards;
+      }
+      .section:nth-of-type(1) {
+        animation-delay: 0.2s;
+      }
+      .section:nth-of-type(2) {
+        animation-delay: 0.4s;
+      }
+      .section:nth-of-type(3) {
+        animation-delay: 0.6s;
+      }
+      .section:nth-of-type(4) {
+        animation-delay: 0.8s;
+      }
 
-        .section h2 {
-        color: royalblue;
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes shine {
+        0% {
+          background-position: -150% 0;
+        }
+        100% {
+          background-position: 150% 0;
+        }
+      }
+
+      .section h2 {
+        font-size: 1.4rem;
         margin-bottom: 1rem;
-        border-bottom: 2px solid #ccc;
-        }
+        position: relative;
+        padding-bottom: 0.4rem;
+        color: #fff;
+      }
+      .section h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 60px;
+        height: 2px;
+        background: #555;
+        transform: translateX(-50%);
+      }
 
-        .img-wrap {
+      .img-wrap {
         text-align: center;
-        margin: 1.5rem 0;
-        }
-
-        .img-wrap img {
+        margin: 1.2rem 0;
+      }
+      .img-wrap img {
         max-width: 100%;
         height: auto;
-        border-radius: 12px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-        }
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, filter 0.3s ease;
+        filter: brightness(0.95);
+      }
+      .img-wrap img:hover {
+        transform: scale(1.03);
+        filter: brightness(1.1);
+      }
 
-        .music-wrap {
+      .music-wrap {
         text-align: center;
         margin-top: 1.5rem;
-        }
+      }
+      .music-wrap iframe {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      }
 
-        .music-wrap iframe {
-        border-radius: 12px;
-        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-        }
+      .section ul {
+        margin-left: 1.2rem;
+        list-style: none;
+      }
+      .section ul li {
+        margin-bottom: 0.6rem;
+        position: relative;
+        padding-left: 1.2rem;
+      }
+      .section ul li::before {
+        content: "▹";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #888;
+      }
 
-        ul {
-        padding-left: 1.5rem;
-        }
-
-        .back-home {
+      .back-home {
         display: inline-block;
         margin-top: 2rem;
         padding: 0.6rem 1.4rem;
-        background-color: #888;
-        color: white;
-        border-radius: 10px;
+        background: linear-gradient(135deg, #555, #333);
+        color: #e5e5e5;
+        border-radius: 8px;
         text-decoration: none;
-        font-weight: bold;
-        transition: 0.2s;
-        }
-
-        .back-home:hover {
-        background-color: #555;
-        }
+        font-weight: 600;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+        transition: transform 0.2s, filter 0.2s;
+      }
+      .back-home:hover {
+        transform: translateY(-3px);
+        filter: brightness(1.2);
+      }
     </style>
-    </head>
+  </head>
 
-    <body>
+  <body>
     <div class="team-banner">
-        <img src="{{ url_for('static', filename='img/육회튀김.png') }}" alt="육회튀김조 대표 이미지" />
-        <h1 class="team-name">육회튀김조 <span class="eng">(Beef-Fried)</span></h1>
+      <img
+        src="{{ url_for('static', filename='img/육회튀김.png') }}"
+        alt="육회튀김조 대표 이미지"
+      />
+      <h1 class="team-name">
+        육회튀김조 <span class="eng">(Beef-Fried)</span>
+      </h1>
     </div>
 
     <div class="section">
-        <h2>🔥 팀명 유래</h2>
-        <p>
-        저희 조는 멤버들이 모두 육회와 감자튀김을 좋아해서 육회+감자튀김을 합친친 <strong>육회튀김조</strong>라는 이름이 탄생하게 되었습니다.
-        다소 생소할 수 있지만, 그래서 더 기억에 남는 이름이 되었어요!
-        </p>
+      <h2>🔥 팀명 유래</h2>
+      <p>
+        저희 조는 멤버들이 모두 육회와 감자튀김을 좋아해서 육회+감자튀김을 합친
+        <strong>육회튀김조</strong>라는 이름이 탄생하게 되었습니다. 다소 생소할
+        수 있지만, 그래서 더 기억에 남는 이름이 되었어요!
+      </p>
     </div>
 
     <div class="section">
-        <h2>🛠️ 제작기</h2>
-        <p>
-        처음에는 입력폼 하나만 만들기로 했지만, 점점 아이디어가 모이면서 팀 소개, 게임, 스타일링 등 다양한 기능을 추가하게 되었어요.
-        </p>
-        <div class="img-wrap">
-        <img src="{{ url_for('static', filename='img/making.jpg') }}" alt="제작 과정 이미지">
-        </div>
-        <p>사진은 직접 시은님이 아이디어를 종합 하며 만드신 프로토타입이에요.</p>
+      <h2>🛠️ 제작기</h2>
+      <p>
+        처음에는 입력폼 하나만 만들기로 했지만, 점점 아이디어가 모이면서 팀
+        소개, 게임, 스타일링 등 다양한 기능을 추가하게 되었어요.
+      </p>
+      <div class="img-wrap">
+        <img
+          src="{{ url_for('static', filename='img/making.jpg') }}"
+          alt="제작 과정 이미지"
+        />
+      </div>
+      <p>사진은 직접 시은님이 아이디어를 종합하며 만드신 프로토타입이에요.</p>
     </div>
 
     <div class="section">
-        <h2>🎧 우리 팀의 추천 노래</h2>
-        <div class="music-wrap">
-            <iframe width="300" height="180"
-            src="https://www.youtube.com/embed/fzNMd3Tu1Zw"
-            title="NCS Music" allowfullscreen>
-            </iframe>
-        </div>
+      <h2>🎧 우리 팀의 추천 노래</h2>
+      <div class="music-wrap">
+        <iframe
+          width="300"
+          height="180"
+          src="https://www.youtube.com/embed/fzNMd3Tu1Zw"
+          title="NCS Music"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
 
     <div class="section">
-        <h2>📌 미공개 TMI</h2>
-        <ul>
+      <h2>📌 미공개 TMI</h2>
+      <ul>
         <li>수빈이는 발표 전에 꼭 민초를 먹는다.</li>
         <li>원은 코딩 중 클래식 음악을 틀어놓는다.</li>
         <li>시은이는 새벽 2시에 아이디어가 가장 잘 떠오른다.</li>
-        </ul>
+      </ul>
     </div>
 
-    <div class="section" style="text-align: center;">
-        <a href="{{ url_for('home') }}" class="back-home">🏠 홈으로 돌아가기</a>
+    <div class="section" style="text-align: center">
+      <a href="{{ url_for('home') }}" class="back-home">🏠 홈으로 돌아가기</a>
     </div>
-    </body>
+  </body>
 </html>
