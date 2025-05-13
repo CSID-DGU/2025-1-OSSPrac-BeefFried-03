@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------
-   RESULT PAGE – Metallic Black & Silver Theme
+RESULT PAGE – Metallic Black & Silver Theme
 ------------------------------------------------------------ */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
@@ -20,7 +20,7 @@ body {
   font-weight: 700;
   font-size: 2rem;
   letter-spacing: 0.3px;
-  color: #c0c0c0;
+  color: linear-gradient(135deg, #ffffff 0%, #c4c3c3 100%);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.55);
 }
 #nothing_comment {
@@ -37,7 +37,7 @@ body {
   padding: 0 20px;
 }
 #profile_container {
-  width: 350px;
+  width: 30%;
   background: #333439;
   border-radius: 18px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
@@ -52,6 +52,7 @@ body {
   display: flex;
   gap: 22px;
   padding: 22px;
+  height: 22vh;
 }
 .profile_img {
   width: 100px;
@@ -94,6 +95,11 @@ body {
   margin: 4px 0;
   font-size: 0.9rem;
   color: #bfbfbf;
+}
+
+.future_info{
+  display: flex;
+  gap : 30px;
 }
 
 .imgFuture {
@@ -159,7 +165,7 @@ body {
 .personality_box p,
 .future_box p {
   color: #d0d0d0; /* 기존 #bfbfbf → 더 밝게 */
-  line-height: 1.4;
+  line-height: 1.4rem;
 }
 
 .personality_box p:first-of-type,   /* MBTI */

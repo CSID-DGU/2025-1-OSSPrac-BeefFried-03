@@ -45,7 +45,7 @@ def submit():
         img_future.save(os.path.join(UPLOAD_DIR, fname))
         member["ImgFuture"] = f"uploads/{fname}"
 
-   
+
     members.append(member)
 
     

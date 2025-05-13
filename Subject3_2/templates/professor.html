@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8" />
+    <title>교수님 전용 페이지</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <style>
+      .section {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 1rem;
+        text-align: center;
+        line-height: 1.8;
+      }
+      .professor-img {
+        width: 150px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+      .result-box {
+        margin-top: 1.5rem;
+        font-weight: bold;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="team-banner">
+      <h1 class="team-name">
+        이길섭 교수님 <span class="eng">(Open Source Professor)</span>
+      </h1>
+      <p class="tagline">"오늘도 학생들과 함께"</p>
+    </div>
+
+    <main>
+      <!-- 구역 1: 교수님 소개 -->
+      <section class="section">
+        <h2>👨‍🏫 교수님 소개</h2>
+
+        <!-- 교수님 사진 -->
+        <img
+          src="{{ url_for('static', filename='img/professor.png') }}"
+          alt="교수님 이미지"
+          style="
+            width: 150px;
+            border-radius: 12px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+            margin-bottom: 1rem;
+          "
+        />
+        <p><strong>이름:</strong> 이길섭</p>
+        <p><strong>담당 과목:</strong> 오픈소스소프트웨어실습</p>
+      </section>
+
+      <!-- 교수님 미션 룰렛 -->
+      <section class="section">
+        <h2>🎯 오늘의 교수님 미션 룰렛</h2>
+        <div class="roulette-wrap">
+          <div class="arrow">▼</div>
+          <canvas id="roulette" width="300" height="300"></canvas>
+          <div class="roulette-buttons">
+            <button onclick="spinRoulette()" class="spin-button">
+              🎲 미션 뽑기
+            </button>
+          </div>
+          <p id="mission-result" class="result-text"></p>
+        </div>
+      </section>
+
+      <style>
+        .roulette-wrap {
+          text-align: center;
+          margin: 2rem auto;
+          position: relative;
+        }
+        .spin-button {
+          margin-top: 1rem;
+          padding: 0.5rem 1.5rem;
+          font-size: 1rem;
+          border-radius: 10px;
+          border: none;
+          background: white;
+          color: black;
+          cursor: pointer;
+        }
+        .roulette-buttons {
+          margin-top: 1rem;
+        }
+        .result-text {
+          font-weight: bold;
+          margin-top: 1rem;
+        }
+        .arrow {
+          position: absolute;
+          top: -25px;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 24px;
+          color: white;
+        }
+        .cheer-box {
+          background-color: #ffffff10;
+          padding: 1rem;
+          border-radius: 12px;
+          margin-top: 1.5rem;
+          color: #fff;
+          font-weight: bold;
+          text-align: center;
+          font-size: 1.2rem;
+        }
+        .cheer-section {
+          text-align: center;
+          margin-top: 2rem;
+        }
+        .cheer-section button {
+          padding: 0.5rem 1.5rem;
+          font-size: 1rem;
+          border-radius: 10px;
+          border: none;
+          background: white;
+          color: black;
+          cursor: pointer;
+        }
+      </style>
+
+      <script>
+        const missions = [
+          "☕ 커피 타임",
+          "🎓 인사 나누기",
+          "📢 박수 보내기",
+          "🌿 산책 추천",
+        ];
+        const colors = ["#f7c59f", "#92b4ec", "#ffafcc", "#a8dadc"];
+        const canvas = document.getElementById("roulette");
+        const ctx = canvas.getContext("2d");
+
+        let angle = 0;
+
+        function drawRoulette() {
+          const size = missions.length;
+          const anglePerItem = (2 * Math.PI) / size;
+          for (let i = 0; i < size; i++) {
+            ctx.beginPath();
+            ctx.moveTo(150, 150);
+            ctx.fillStyle = colors[i];
+            ctx.arc(
+              150,
+              150,
+              140,
+              anglePerItem * i + angle,
+              anglePerItem * (i + 1) + angle
+            );
+            ctx.fill();
+            ctx.save();
+            ctx.translate(150, 150);
+            ctx.rotate(anglePerItem * (i + 0.5) + angle);
+            ctx.textAlign = "right";
+            ctx.fillStyle = "#333";
+            ctx.font = "14px sans-serif";
+            ctx.fillText(missions[i], 130, 5);
+            ctx.restore();
+          }
+        }
+
+        function spinRoulette() {
+          let spinSpeed = Math.random() * 30 + 30;
+          let deceleration = 0.98;
+
+          function animate() {
+            spinSpeed *= deceleration;
+            angle += spinSpeed * 0.01;
+            ctx.clearRect(0, 0, 300, 300);
+            drawRoulette();
+
+            if (spinSpeed > 0.1) {
+              requestAnimationFrame(animate);
+            } else {
+              const correctedAngle = angle % (2 * Math.PI);
+              const pointerAngle =
+                ((3 * Math.PI) / 2 - correctedAngle + 2 * Math.PI) %
+                (2 * Math.PI);
+              const selectedIndex = Math.floor(
+                pointerAngle / ((2 * Math.PI) / missions.length)
+              );
+              const selected = missions[selectedIndex];
+              document.getElementById(
+                "mission-result"
+              ).innerText = `🎉 오늘의 미션: ${selected}`;
+            }
+          }
+
+          animate();
+        }
+
+        drawRoulette();
+      </script>
+
+      <!-- 응원 메시지 부분 -->
+      <section class="section cheer-section">
+        <h2>💌 학생들의 응원 메시지</h2>
+        <button onclick="showCheer()">🚀 응원 받기</button>
+        <div id="cheer-box" class="cheer-box" style="display: none"></div>
+      </section>
+
+      <script>
+        const cheers = [
+          "오늘도 교수님의 강의는 명강의입니다! 👏",
+          "교수님 덕분에 오픈소스가 즐거워졌어요 😊",
+          "학생들은 언제나 이길섭 교수님을 응원하고 있어요 💪",
+          "교수님, 정말 멋지십니다! 🌟",
+        ];
+
+        function showCheer() {
+          const random = cheers[Math.floor(Math.random() * cheers.length)];
+          const cheerBox = document.getElementById("cheer-box");
+          cheerBox.innerText = random;
+          cheerBox.style.display = "block";
+          cheerBox.scrollIntoView({ behavior: "smooth" });
+        }
+      </script>
+
+      <div class="section" style="text-align: center">
+        <a href="{{ url_for('home') }}">🏠 홈으로 돌아가기</a>
+      </div>
+    </main>
+  </body>
+</html>
