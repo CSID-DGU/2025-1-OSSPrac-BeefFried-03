@@ -38,7 +38,7 @@ body {
 }
 #profile_container {
   width: 350px;
-  background: #1b1b1b;
+  background: #333439;
   border-radius: 18px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
   transition: transform 0.3s, box-shadow 0.3s;
@@ -139,7 +139,7 @@ body {
 .home_button:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 0 9px 24px rgba(0, 0, 0, 0.75);
-  filter: brightness(1.12);
+  background: linear-gradient(135deg, #ffffff 0%, #c4c3c3 100%);
 }
 
 .profile_detail h1 {

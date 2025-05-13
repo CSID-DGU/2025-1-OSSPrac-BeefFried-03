@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>팀원 정보</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}" />
 </head>
 <body>
@@ -43,7 +43,7 @@
                         <h3>미리 보는 미래 프로필</h3>
                         <div class="future_info">
                             <div class="profile_imgBox">
-                                {% if memFuture %}
+                                {% if mem.ImgFuture %}
                                     <img src="{{url_for('static', filename=mem.ImgFuture)}}" alt="미래 이미지" class="profile_img imgFuture" >
                                 {% else %}
                                     <img src="{{ url_for('static', filename='img/default.jpg') }}" alt="기본 이미지" class="profile_img imgFuture">
@@ -58,7 +58,7 @@
                 </div>
             {% endfor %}
         </section>
-        <div class="home-button-container"><a href="{{ url_for('home') }}" class="home_button">🏠 홈으로</a></div>
+        <div class="home-button-container"><a href="{{ url_for('home') }}" class="home_button">🏠홈으로</a></div>
     </div>
 </body>
 </html>

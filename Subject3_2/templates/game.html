@@ -9,57 +9,63 @@
     />
   </head>
   <body>
-    <div class="team-banner">
-      <img
-        src="{{ url_for('static', filename='img/육회튀김.png') }}"
-        alt="육회튀김조 대표 이미지"
-      />
-      <h1 class="team-name">
-        육회튀김조 <span class="eng">(Beef-Fried)</span>
-      </h1>
+    <div class="contact_section">
+      <div class="team-banner">
+        <img
+          src="{{ url_for('static', filename='img/육회튀김.png') }}"
+          alt="육회튀김조 대표 이미지"
+        />
+        <h1 class="team-name">
+          육회튀김조 <span class="eng">(Beef-Fried)</span>
+        </h1>
+      </div>
+      <div class="question_box">
+        <h2 style="text-align: center;">
+          {{ quiz.question }}
+        </h2>
+        <form
+          method="POST"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          "
+        >
+          <input type="hidden" name="is_true" value="{{ quiz.is_true }}" />
+          <button type="submit" name="answer" value="true" class="main-button">
+            True
+          </button>
+          <button type="submit" name="answer" value="false" class="main-button">
+            False
+          </button>
+        </form>
+      </div>
+      {% if result %}
+      <div class="result-area">
+        <h3>{{ result }}</h3>
+        <a href="{{ url_for('game') }}">다음 문제로 →</a>
+      </div>
+      {% endif %}
+      <div class="home-button-wrap">
+        <a href="{{ url_for('home') }}" class="home-button">🏠 홈으로</a>
+      </div>
+      
     </div>
-
-    <h2 style="text-align: center; margin-top: 2rem; color: rgb(192, 192, 192)">
-      {{ quiz.question }}
-    </h2>
-
-    <form
-      method="POST"
-      style="
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 2rem;
-      "
-    >
-      <input type="hidden" name="is_true" value="{{ quiz.is_true }}" />
-      <button type="submit" name="answer" value="true" class="main-button">
-        True
-      </button>
-      <button type="submit" name="answer" value="false" class="main-button">
-        False
-      </button>
-    </form>
-
-    <div class="home-button-wrap">
-      <a href="{{ url_for('home') }}" class="home-button">🏠 홈으로</a>
-    </div>
-
-    {% if result %}
-    <div class="result-area">
-      <h3>{{ result }}</h3>
-      <a href="{{ url_for('game') }}">다음 문제로 →</a>
-    </div>
-    {% endif %}
 
     <style>
       body {
         overflow-x: hidden;
       }
+      .contact_section{
+        display : flex;
+        flex-direction : column;
+        justify-content: center;
+      }
       .home-button-wrap {
         text-align: center;
         margin-top: 2rem;
+        margin: auto;
+        margin-top: 50px;
       }
 
       .home-button {
@@ -73,7 +79,7 @@
       }
 
       .home-button:hover {
-        background-color: #888;
+        background: linear-gradient(135deg, #ffffff 0%, #c4c3c3 100%);
       }
 
       .main-button {
@@ -87,7 +93,8 @@
       }
 
       .main-button:hover {
-        background-color: darkblue;
+         background: linear-gradient(135deg, #c0c0c0 0%, #7d7d7d 100%);
+        
       }
 
       .result-area {
@@ -135,7 +142,7 @@
         text-decoration: none;
         cursor: pointer;
 
-        background: linear-gradient(135deg, #d5d5d5 0%, #8b8b8b 100%);
+        background: linear-gradient(135deg, #ffffff 0%, #c4c3c3 100%);
         box-shadow: 0 5px 14px rgba(0, 0, 0, 0.5);
         position: relative;
         overflow: hidden;
@@ -175,7 +182,6 @@
 
       h2 {
         max-width: 680px;
-        margin: 2.4rem auto 0;
         line-height: 1.45;
         font-weight: 600;
         color: #c0c0c0;
@@ -221,6 +227,19 @@
       .result-area a:hover {
         background: #d5d5d5;
         color: #111;
+      }
+
+      .question_box{
+          background: #2a2a2a;
+          margin: auto;
+          width: 50%;
+          height: 35vh;
+          padding: 20px;
+          border-radius: 10px;
+      }
+      .question_box h1 {
+        margin: 34px auto 24px auto;
+        
       }
 
       @media (max-width: 600px) {

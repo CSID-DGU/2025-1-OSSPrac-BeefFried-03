@@ -57,7 +57,7 @@
         max-width: 800px;
         margin: 2rem auto;
         padding: 1.5rem 2rem;
-        background: #1b1b1b;
+        background: #2a2a2a;
         border-radius: 12px;
         box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
         opacity: 0;
@@ -104,17 +104,17 @@
 
       .section h2 {
         font-size: 1.4rem;
-        margin-bottom: 1rem;
         position: relative;
-        padding-bottom: 0.4rem;
         color: #fff;
+        margin: 0 15px 15px;
+        padding-bottom: 8px;
       }
       .section h2::after {
         content: "";
         position: absolute;
         bottom: 0;
-        left: 50%;
-        width: 60px;
+        left: 52%;
+        width: 300px;
         height: 2px;
         background: #555;
         transform: translateX(-50%);
@@ -140,6 +140,7 @@
       .music-wrap {
         text-align: center;
         margin-top: 1.5rem;
+        margin-left: 21px;
       }
       .music-wrap iframe {
         border: none;
@@ -178,7 +179,8 @@
       }
       .back-home:hover {
         transform: translateY(-3px);
-        filter: brightness(1.2);
+        background: linear-gradient(135deg, #ffffff 0%, #c4c3c3 100%);
+        color:black;
       }
     </style>
   </head>
@@ -240,7 +242,7 @@
       </ul>
     </div>
 
-    <div class="section" style="text-align: center">
+    <div class="section_bottom" style="text-align: center">
       <a href="{{ url_for('home') }}" class="back-home">🏠 홈으로 돌아가기</a>
     </div>
   </body>
