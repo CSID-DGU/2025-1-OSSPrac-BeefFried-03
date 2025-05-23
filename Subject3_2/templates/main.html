@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>팀원 정보 결과</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+  </head>
+  <body>
+    <div class="team-banner">
+      <img
+        src="{{ url_for('static', filename='img/육회튀김.png') }}"
+        alt="육회튀김조 대표 이미지"
+      />
+
+      <h1 class="team-name">
+        육회튀김조 <span class="eng">(Beef-Fried)</span>
+      </h1>
+    </div>
+
+    <h2>입력된 팀원 정보</h2>
+
+    {% for m in members %}
+    <table class="result">
+      <caption>
+        Student {{ loop.index }}
+      </caption>
+      <tr>
+        <th>Name</th>
+        <td>{{ m.Name }}</td>
+      </tr>
+      <tr>
+        <th>Major</th>
+        <td>{{ m.Major }}</td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td>{{ m.Email }}</td>
+      </tr>
+      <tr>
+        <th>Role</th>
+        <td>{{ m.Role }}</td>
+      </tr>
+      <tr>
+        <th>Phone</th>
+        <td>{{ m.Phone }}</td>
+      </tr>
+      <tr>
+        <th>MBTI</th>
+        <td>{{ m.MBTI }}</td>
+      </tr>
+      <tr>
+        <th>한줄평</th>
+        <td>{{ m.Comment }}</td>
+      </tr>
+      <tr>
+        <th>언어</th>
+        <td>{{ m.Languages }}</td>
+      </tr>
+    </table>
+    {% endfor %}
+
+    <a href="{{ url_for('input_page') }}" class="again">← 다시 입력하기</a>
+  </body>
+</html>

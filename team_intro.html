@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Intro</title>
+    <style>
+        body {
+            background-color: rgb(244, 238, 238);
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            text-align: left;
+        }
+        p {
+            color: #663399;
+            text-decoration:underline; 
+            font-weight: bold;
+        }
+        th {
+            color: rgb(101, 8, 95);
+            text-align: left;
+            background-color: rgb(243, 212, 212);
+        }
+        td {
+            color: black;
+            text-align: center;
+            padding: 1px;
+        }
+        .center-text-align {
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            border: 2px solid rgb(223, 112, 112);
+            border-radius: 10px;
+            padding: 5px;
+            color: rgb(223, 112, 112);
+            cursor: pointer;
+        }
+        a:hover{
+            box-shadow: 5px 5px 5px rgb(218, 171, 160);
+        }
+    </style>
+</head>  
+
+<body>
+
+    <h1>OSS실습: Beef-Fried-03팀 소개</h1>
+
+    <ul style="list-style-type: circle">
+        <li>팀명 박원</li>  
+        <li>팀장 박원, 정보통신공학과,qkrdnjs0323@gmail.com</li>  
+        <li>팀원 임수빈, 화공생물공학과, 이메일 </li>  
+        <li>팀원 이시은, 정보통신공학과, ave0315@naver.com</li>  
+    </ul>
+
+    <h2>팀명 Beef-Fried-03팀</h1>  
+        <table style="width:100%">
+            <tr style="background-color:lightgrey">
+                <th>구분</th>
+                <th>성명</th>     
+                <th>학과</th>  
+                <th>이메일</th>   
+            </tr>
+            <tr>
+                <td>팀장</td>
+                <td>박원</td>        
+                <td>정보통신공학과</td>  
+                <td>qkrdnjs0323@gmail.com</td>
+            </tr>
+            <tr>
+                <td>팀원</td>
+                <td>김가람</td>        
+                <td>역사학과</td>  
+                <td>grkim@dgu.edu</td>
+            </tr>
+            <tr>
+                <td>팀원</td>
+                <td>이시은</td>        
+                <td>정보통신공학과</td>  
+                <td>ave0315@naver.com</td>
+            </tr>
+        </table>
+        <br>
+        <a href="./index.html" target="_blank">팀원 역할 소개 페이지 바로가기</a>
+        <h3>로컬 현재 폴더 이미지</h3><br>
+        <img src="beef.jpeg" alt="이미지가 없나봐요.." style="width: 400px;">  
+        <h3>로컬 절대경로 폴더 이미지</h3><br>  
+        <img src="C:\Users\isieu\OneDrive\OSSPrac\2025-1-OSSPrac-BeefFried-03\fried.jpg" alt="이미지가 없나봐요..">  
+        <h3>로컬 CSID-DGU Github Repo 이미지</h3><br>  
+        <img src="https://github.com/CSID-DGU/2025-1-OSSPrac/raw/main/img/pic_trulli.jpg" alt="이미지가 없나봐요..">
+
+        <h3>Github 폴더(Raw 버튼 링크 복사) 내의 동영상 재생</h3><br>
+        <video width="640" height="360" controls autoplay muted loop>
+        <source src="https://github.com/CSID-DGU/2025-1-OSSPrac/raw/34a479eb316dd9a8c094ac5381c22c7e6c031bc6/video/cherry_9s.mp4" type="video/mp4">
+
+</video>
+</body>
+</html>

@@ -1,0 +1,268 @@
+/* ------------------------------------------------------------------
+   BEFF-FRIED - Metallic Black & Silver Theme
+-------------------------------------------------------------------*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #e5e5e5;
+}
+body {
+  margin: 0;
+  padding: 50px 0;
+  background: #111;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =============================== 팀 배너 =============================== */
+.team-banner {
+  text-align: center;
+  margin-bottom: 48px;
+  animation: fadeDown 0.8s ease-out;
+}
+.team-banner img {
+  max-width: 200px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  filter: grayscale(0.15) contrast(1.05);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s;
+}
+.team-banner img:hover {
+  transform: scale(1.05) rotate(-3deg);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+  filter: grayscale(0) contrast(1.15);
+}
+
+.team-name {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin: 20px 0 4px;
+  letter-spacing: 0.5px;
+  background: linear-gradient(120deg, #bbb, #fff 45%, #bbb 60%);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shine 4s linear infinite,
+    bounceText 2s ease-in-out infinite alternate;
+  position: relative;
+}
+.team-name .eng {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #9a9a9a;
+  background: none;
+  -webkit-text-fill-color: #9a9a9a;
+}
+
+/* 밑줄 슬라이드 */
+.team-name::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #c0c0c0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.team-name:hover::after {
+  transform: scaleX(1);
+}
+
+/* shine keyframes */
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+@keyframes bounceText {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(1deg);
+  }
+  100% {
+    transform: scale(1) rotate(-1deg);
+  }
+}
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================= 섹션 제목 ========================= */
+h2 {
+  text-align: center;
+  margin: 34px auto 24px auto;
+  font-weight: 600;
+  color: #c0c0c0;
+}
+
+/* ========================= 입력 폼 ========================= */
+.single-form {
+  width: min(600px, 92%);
+  margin: 0 auto;
+}
+.single-form fieldset {
+  border: 2px solid #444;
+  border-radius: 16px;
+  padding: 26px 28px;
+  background: #1b1b1b;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+}
+legend {
+  padding: 0 12px;
+  color: #c0c0c0;
+  font-weight: 600;
+}
+label {
+  display: block;
+  margin: 12px 0;
+  font-size: 0.96rem;
+}
+label > input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  border: 1.5px solid #444;
+  border-radius: 8px;
+  background: #111;
+  color: #e5e5e5;
+  transition: border-color 0.2s, background 0.2s;
+}
+label > input:focus {
+  border-color: #c0c0c0;
+  background: #181818;
+}
+input.mini {
+  width: 75px !important;
+  display: inline-block;
+}
+
+/* 파일 업로드 행 */
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+.file-row input[type="file"] {
+  flex: 1;
+  padding: 6px;
+  border: 1.5px dashed #555;
+  border-radius: 8px;
+  background: #111;
+  color: #aaa;
+  transition: border-color 0.2s, background 0.2s;
+}
+.file-row input[type="file"]:hover {
+  border-color: #c0c0c0;
+  background: #181818;
+}
+.file-row span {
+  min-width: 48px;
+  color: #c0c0c0;
+}
+
+/* 체크박스 라벨 */
+.check-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 18px;
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+.check-inline input {
+  accent-color: #c0c0c0;
+}
+
+/* ========================= 버튼 (공통) ========================= */
+button[type="submit"] {
+  width: 220px; /* 모든 버튼 동일 폭 */
+  display: block;
+  margin: 32px auto 0;
+  padding: 13px 0;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(135deg, #ffffff 0%, #c4c3c3 100%);
+  color: #111;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s, filter 0.18s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+button[type="submit"]:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
+  filter: brightness(1.15);
+}
+
+/* ========================= 결과 테이블 ========================= */
+table.result {
+  border-collapse: collapse;
+  width: min(520px, 92%);
+  margin: 40px auto 32px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+table.result caption {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #c0c0c0;
+}
+table.result th,
+table.result td {
+  border: 1px solid #444;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+}
+table.result th {
+  background: #272727;
+  width: 150px;
+  color: #c0c0c0;
+  text-align: left;
+}
+table.result td {
+  background: #1b1b1b;
+}
+
+/* 다시 입력 링크 */
+.again {
+  display: block;
+  text-align: center;
+  margin-top: 46px;
+  font-weight: 500;
+  color: #c0c0c0;
+}
+.again:hover {
+  text-decoration: underline;
+}
+
+/* ========================= 반응형(600px↓) ========================= */
+@media (max-width: 600px) {
+  button[type="submit"] {
+    width: 180px;
+  }
+  .team-banner img {
+    max-width: 150px;
+  }
+}

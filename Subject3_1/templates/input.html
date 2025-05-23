@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <form action="/result" method="POST">
+
+      <p>Name</p> 
+      <input type="text" name="name" required><br>
+
+      <p>Student Number</p>
+      <input type="text" name="StudentNumber" required><br>
+
+      <p>Major</p>
+      <input type="text" name="major" required><br><br>
+
+      <!-- gender 라디오 버튼 -->
+      <label>Gender</label><br />
+      <label>
+        <input type="radio" name="gender" value="Male" required />
+        Male
+      </label>
+      <label>
+        <input type="radio" name="gender" value="Female" />
+        Female
+      </label>
+
+      <p>Programming Languages</p>
+      <label
+        ><input type="checkbox" name="languages" value="python" />Python</label
+      >
+      <label><input type="checkbox" name="languages" value="java" />Java</label>
+      <label><input type="checkbox" name="languages" value="HTML" />HTML</label>
+      <label><input type="checkbox" name="languages" value="C++" />C++</label
+      ><br />
+      <br />
+      <button type="submit" name="submit" value="submit">submit</button>
+    </form>
+  </body>
+</html>

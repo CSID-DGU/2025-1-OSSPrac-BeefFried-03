@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>팀원 정보 입력</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+  </head>
+  <body>
+    <div class="team-banner">
+      <img
+        src="{{ url_for('static', filename='img/육회튀김.png') }}"
+        alt="육회튀김조 대표 이미지"
+      />
+      <h1 class="team-name">
+        육회튀김조 <span class="eng">(Beef-Fried)</span>
+      </h1>
+    </div>
+
+    <h2>
+      팀원 정보를 입력하세요 &nbsp;(<span class="accent">{{ order }}</span>/3)
+    </h2>
+
+    <form
+      action="{{ url_for('submit') }}"
+      method="POST"
+      enctype="multipart/form-data"
+      class="single-form"
+    >
+      <fieldset>
+        <legend>Student {{ order }}</legend>
+
+        <label>Name <input type="text" name="name" required /></label>
+        <label>Major <input type="text" name="dept" required /></label>
+        <label>Email <input type="email" name="email" required /></label>
+        <label>Role <input type="text" name="role" required /></label>
+        <label
+          >Phone <input type="tel" name="phone" placeholder="010-1234-5678"
+        /></label>
+
+        <label
+          >MBTI <input type="text" name="mbti" maxlength="4" class="mini"
+        /></label>
+        <label
+          >성격 한줄평 <input type="text" name="comment" maxlength="50"
+        /></label>
+
+        <p>현재 / 미래 프로필 이미지</p>
+        <div class="file-row">
+          <span>현재</span><input type="file" name="img_now" accept="image/*" />
+        </div>
+        <div class="file-row">
+          <span>미래</span
+          ><input type="file" name="img_future" accept="image/*" />
+        </div>
+
+        <label
+          >미래 소속(회사·연구실 등) <input type="text" name="future_org"
+        /></label>
+        <label>좌우명 <input type="text" name="motto" maxlength="60" /></label>
+
+        <p>Programming Languages</p>
+        {% for lang in ['Python','Java','HTML','C++'] %}
+        <label class="check-inline"
+          ><input type="checkbox" name="languages" value="{{ lang }}" /> {{ lang
+          }}</label
+        >
+        {% endfor %}
+      </fieldset>
+
+      <button type="submit">Save →</button>
+    </form>
+  </body>
+</html>
