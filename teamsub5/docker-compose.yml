@@ -5,10 +5,12 @@ services:
     build: ./FrontEnd
     image: qkrdnjs0323/frontapp:latest
     ports:
-      - "8080:8080"
+      - "8080:80"
 
   backapp:
     build: ./BackEnd
     image: qkrdnjs0323/backapp:latest
+    ports:
+      - "5000:5000"
     depends_on:
       - frontapp
