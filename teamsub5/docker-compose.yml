@@ -5,11 +5,10 @@ services:
     build: ./FrontEnd
     image: qkrdnjs0323/frontapp:latest
     ports:
-      - "8080:8080"
+      - "8081:8080"
 
   backapp:
     build: ./BackEnd
     image: qkrdnjs0323/backapp:latest
     depends_on:
       - frontapp
->>>>>>> 6dce82a (docker_compose.yml 수정)
