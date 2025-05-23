@@ -4,3 +4,9 @@ services:
     image: #/frontapp:latest
     ports:
       - "8080:80"
+
+  backapp:
+    build: ./BackEnd
+    image:  #/backapp:latest
+    ports:
+      - "5000:5000"
