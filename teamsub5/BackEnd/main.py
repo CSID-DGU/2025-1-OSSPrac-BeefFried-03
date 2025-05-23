@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import os
 import random
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 UPLOAD_DIR = os.path.join(app.root_path, "static", "uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)

@@ -22,6 +22,7 @@ def input_page():
     order = len(members) + 1
     return render_template("input.html", order=order)
 
+
 @app.route("/submit", methods=["POST"])
 def submit():
     member = {
@@ -37,7 +38,7 @@ def submit():
         "Motto": request.form.get("motto", "").strip()
     }
 
-    # 이미지 파일 저장
+    #이미지 파일 저장
     img_now = request.files.get("img_now")
     img_future = request.files.get("img_future")
 
@@ -138,6 +139,7 @@ def professor_cheer():
     ]
     result = random.choice(cheers)
     return render_template("professor.html", result=result)
+
 
 # ------------------- 서버 실행 -------------------
 if __name__ == "__main__":
