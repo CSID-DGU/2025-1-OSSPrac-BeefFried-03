@@ -1,0 +1,6 @@
+services:
+  frontapp:
+    build: ./FrontEnd
+    image: #/frontapp:latest
+    ports:
+      - "8080:80"
