@@ -1,11 +1,11 @@
 # docker-compose.yml
-version: "3.0"
+
 services:
   frontapp:
     build: ./FrontEnd
     image: qkrdnjs0323/frontapp:latest
     ports:
-      - "8081:8080"
+      - "8080:8080"
 
   backapp:
     build: ./BackEnd
