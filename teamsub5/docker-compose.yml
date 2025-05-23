@@ -1,12 +1,15 @@
+# docker-compose.yml
+version: "3.0"
 services:
   frontapp:
     build: ./FrontEnd
-    image: #/frontapp:latest
+    image: qkrdnjs0323/frontapp:latest
     ports:
-      - "8080:80"
+      - "8080:8080"
 
   backapp:
     build: ./BackEnd
-    image:  #/backapp:latest
-    ports:
-      - "5000:5000"
+    image: qkrdnjs0323/backapp:latest
+    depends_on:
+      - frontapp
+>>>>>>> 6dce82a (docker_compose.yml 수정)
