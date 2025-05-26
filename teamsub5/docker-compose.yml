@@ -1,16 +1,16 @@
 # docker-compose.yml
-
 services:
   frontapp:
     build: ./FrontEnd
     image: qkrdnjs0323/frontapp:latest
     ports:
-      - "8080:80"
+      - "8081:80"
+    depends_on:
+      - backapp
 
   backapp:
     build: ./BackEnd
     image: qkrdnjs0323/backapp:latest
     ports:
       - "5000:5000"
-    depends_on:
-      - frontapp
+
