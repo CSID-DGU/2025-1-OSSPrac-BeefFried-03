@@ -4,7 +4,7 @@ services:
     build: ./FrontEnd
     image: ${DOCKER_USR}/frontapp:${BUILD_NUMBER}
     ports:
-      - "8081:80"
+      - "8080:80"
     depends_on:
       - backapp
 
