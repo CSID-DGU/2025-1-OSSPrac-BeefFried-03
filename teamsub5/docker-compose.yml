@@ -2,7 +2,7 @@
 services:
   frontapp:
     build: ./FrontEnd
-    image: qkrdnjs0323/frontapp:latest
+    image: ${DOCKER_USR}/frontapp:${BUILD_NUMBER}
     ports:
       - "8081:80"
     depends_on:
@@ -10,7 +10,7 @@ services:
 
   backapp:
     build: ./BackEnd
-    image: qkrdnjs0323/backapp:latest
+    image: ${DOCKER_USR}/backapp:${BUILD_NUMBER}
     ports:
       - "5000:5000"
 
